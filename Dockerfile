@@ -17,4 +17,5 @@ RUN mkdir -p downloads
 
 EXPOSE 8000
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# PORT environment variable එක dynamic ව ලබාගන්න මෙසේ වෙනස් කරන්න
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
